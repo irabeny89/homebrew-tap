@@ -4,7 +4,7 @@ class Hv < Formula
   version "0.7.0"
 
   url "https://github.com/irabeny89/js-html-view/releases/download/#{version}/js-html-view-#{version}.tar.gz"
-  sha256 "397955bc32d98c42196f5622a7372a384a5bfe98cb973e88075d251c3dc0614f"
+  sha256 "76956a73e3360b07253479d3bc8dccfd1b83bff89849c08dc203d0a218cdd1e7"
 
   # Tells Homebrew to ensure Node.js is installed on the user's system
   depends_on "node"
