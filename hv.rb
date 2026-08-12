@@ -1,10 +1,10 @@
 class Hv < Formula
   desc "A CLI to generate static HTML from JS/TS template functions and preview them."
   homepage "https://github.com/irabeny89/js-html-view"
-  version "0.5.0"
+  version "0.6.0"
 
   url "https://github.com/irabeny89/js-html-view/releases/download/#{version}/js-html-view-#{version}.tar.gz"
-  sha256 "a5f44b573a78fd0f7531465b76b947c5046f26f67b444b19856cc54ff9157a3c"
+  sha256 "19716a19f3d0ef78cbaa2064a40b565e3db3396c6af256fb222b906c866478b8"
 
   # Tells Homebrew to ensure Node.js is installed on the user's system
   depends_on "node"
