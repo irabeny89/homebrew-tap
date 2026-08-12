@@ -3,21 +3,19 @@ class Hv < Formula
   homepage "https://github.com/irabeny89/js-html-view"
   version "0.3.0"
 
-  if Hardware::CPU.arm?
-    url "https://github.com/irabeny89/js-html-view/releases/download/#{version}/hv-darwin-arm64"
-    sha256 "6a782085dfd44a30ba882456b4012fc4b50c5098bc739397cdd55155c1c06fe3"
-  else
-    url "https://github.com/irabeny89/js-html-view/releases/download/#{version}/hv-darwin-x64"
-    sha256 "3d082edd8e019506e32e5d30a5bc76ed596e5b96ebdde1efcc9b08377650b4f4"
-  end
+  url "https://github.com/irabeny89/js-html-view/releases/download/#{version}/js-html-view-#{version}.tar.gz"
+  sha256 "032ad2b5cb817d79a2f0f8921f6c69458aad6e345ee754789e882557b857e349"
+
+  # Tells Homebrew to ensure Node.js is installed on the user's system
+  depends_on "node"
 
   def install
-    # Rename the platform binary to standard "hv" on installation
-    if Hardware::CPU.arm?
-      bin.install "hv-darwin-arm64" => "hv"
-    else
-      bin.install "hv-darwin-x64" => "hv"
-    end
+    # Copy all library assets into homebrew's internal cellar path
+    libexec.install Dir["*"]
+
+    # Automatically write an executable symlink wrapper that fires up Node.js
+    # This mounts an ultra-light "hv" command globally that calls your script!
+    bin.install_symlink libexec/"dist/index.js" => "hv"
   end
 
   test do
